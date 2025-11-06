@@ -126,8 +126,7 @@ Enhanced_Mental_Wellness_Predictor/
 
 ### 4. About
 - Understand the project's mission and technology
-- View technical details and methodology
-- Read important disclaimers
+- View technical details and methodology.
 
 ## Dataset Information
 
@@ -136,68 +135,6 @@ The models were trained on a synthetic dataset of 1,000 samples with:
 - **3 Risk Categories**: Low (35%), Medium (40%), High (25%)
 - **Balanced Distribution**: Ensures fair representation across all risk levels
 
-## Model Performance
-
-| Model | Accuracy | Precision (Macro) |
-|-------|----------|-------------------|
-| Random Forest | 100% | 100% |
-| SVM | 100% | 100% |
-| Gradient Boosting | 99.5% | 99.53% |
-| Logistic Regression | 99.5% | 99.53% |
-
-## Important Disclaimer
-
-⚠️ **This tool is for educational and informational purposes only.**
-
-The Mental Wellness Risk Predictor is NOT a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of qualified healthcare providers with questions regarding mental health conditions.
-
-### Crisis Resources
-If you are experiencing a mental health crisis:
-- **National Suicide Prevention Lifeline**: 988
-- **Crisis Text Line**: Text HOME to 741741
-- **Emergency Services**: 911
-
-## Customization
-
-### Adding More Features
-1. Update the dataset generation in `app.py`
-2. Retrain all models with new features
-3. Update the questionnaire form in `questionnaire.html`
-4. Modify the feature extraction in the `/predict` endpoint
-
-### Changing Themes
-- Edit `static/css/style.css`
-- Modify CSS variables in the `:root` selector
-- Customize colors, fonts, and layouts
-
-### Adding New Models
-1. Train your model using scikit-learn
-2. Save it using `pickle`
-3. Update `app.py` to load and use the new model
-4. Add visualization in `analysis.html`
-
-## Troubleshooting
-
-### Common Issues
-
-**1. Port already in use**
-```bash
-# Change the port in app.py
-app.run(debug=True, port=5001)  # Use a different port
-```
-
-**2. Module not found errors**
-```bash
-# Ensure virtual environment is activated
-# Reinstall requirements
-pip install -r requirements.txt
-```
-
-**3. Model file not found**
-```bash
-# Ensure all .pkl files are in the models/ directory
-# Check file permissions
-```
 
 ## Future Enhancements
 
@@ -209,25 +146,5 @@ pip install -r requirements.txt
 - [ ] Integration with real-time mental health resources
 - [ ] Advanced data visualization dashboards
 
-## Contributing
-
-This is an educational project. Feel free to:
-- Fork and improve the code
-- Add new features
-- Enhance the UI/UX
-- Improve model accuracy
-
-## License
-
-This project is for educational purposes. Use responsibly and ethically.
-
-## Contact & Support
-
-For questions or issues:
-- Review the code documentation
-- Check the troubleshooting section
-- Consult Flask and scikit-learn documentation
-
----
 
 **Built with ❤️ for mental health awareness**
