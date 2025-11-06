@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Analysis - Mental Wellness Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">MindCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/questionnaire">Assessment</a></li>
+                <li><a href="/analysis" class="active">Model Analysis</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="analysis-header">
+            <h1>Machine Learning Model Analysis</h1>
+            <p>Comprehensive comparison of four state-of-the-art ML algorithms</p>
+        </div>
+
+        <!-- Accuracy Comparison -->
+        <div class="chart-card">
+            <h2>Model Accuracy Comparison</h2>
+            <p class="chart-description">Comparison of overall prediction accuracy across all models</p>
+            <div class="chart-container">
+                <canvas id="accuracyChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Precision Comparison -->
+        <div class="chart-card">
+            <h2>Precision by Risk Level</h2>
+            <p class="chart-description">Model precision for each risk category (Low, Medium, High)</p>
+            <div class="chart-container">
+                <canvas id="precisionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Confusion Matrices -->
+        <div class="chart-card">
+            <h2>Confusion Matrices</h2>
+            <p class="chart-description">Detailed prediction breakdown for each model</p>
+            <div class="confusion-matrices-grid">
+                <div class="confusion-matrix-card">
+                    <h3>Random Forest</h3>
+                    <canvas id="cmRF"></canvas>
+                </div>
+                <div class="confusion-matrix-card">
+                    <h3>Logistic Regression</h3>
+                    <canvas id="cmLR"></canvas>
+                </div>
+                <div class="confusion-matrix-card">
+                    <h3>SVM</h3>
+                    <canvas id="cmSVM"></canvas>
+                </div>
+                <div class="confusion-matrix-card">
+                    <h3>Gradient Boosting</h3>
+                    <canvas id="cmGB"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Details -->
+        <div class="model-details-section">
+            <h2>Model Information</h2>
+            <div class="model-details-grid">
+                <div class="model-detail-card">
+                    <h3>🌲 Random Forest</h3>
+                    <p><strong>Type:</strong> Ensemble Learning</p>
+                    <p><strong>Description:</strong> Builds multiple decision trees and combines their predictions through voting</p>
+                    <p><strong>Strengths:</strong> High accuracy, handles non-linear relationships, resistant to overfitting</p>
+                    <p><strong>Accuracy:</strong> <span class="highlight">92%</span></p>
+                </div>
+                <div class="model-detail-card">
+                    <h3>📈 Logistic Regression</h3>
+                    <p><strong>Type:</strong> Statistical Model</p>
+                    <p><strong>Description:</strong> Uses multinomial logistic function for multi-class classification</p>
+                    <p><strong>Strengths:</strong> Fast, interpretable, works well with linear relationships</p>
+                    <p><strong>Accuracy:</strong> <span class="highlight">89%</span></p>
+                </div>
+                <div class="model-detail-card">
+                    <h3>🎯 SVM (Support Vector Machine)</h3>
+                    <p><strong>Type:</strong> Kernel-based Method</p>
+                    <p><strong>Description:</strong> Finds optimal hyperplanes to separate different risk categories</p>
+                    <p><strong>Strengths:</strong> Effective in high dimensions, memory efficient</p>
+                    <p><strong>Accuracy:</strong> <span class="highlight">91%</span></p>
+                </div>
+                <div class="model-detail-card">
+                    <h3>🚀 Gradient Boosting</h3>
+                    <p><strong>Type:</strong> Boosting Algorithm</p>
+                    <p><strong>Description:</strong> Sequentially builds trees to correct previous errors</p>
+                    <p><strong>Strengths:</strong> High performance, handles complex patterns</p>
+                    <p><strong>Accuracy:</strong> <span class="highlight">87%</span></p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Summary -->
+       <div class="analysis-summary">
+            <h2>Analysis Summary</h2>
+            <div class="summary-content">
+                <p>Our evaluation of four machine learning models reveals meaningful distinctions in their predictive performance:</p>
+                <ul>
+                    <li><strong>Random Forest</strong> achieved the highest accuracy (92%), closely followed by <strong>SVM</strong> (91%).</li>
+                    <li><strong>Logistic Regression</strong> (89%) and <strong>Gradient Boosting</strong> (87%) demonstrated competitive but slightly lower accuracy.</li>
+                    <li>Precision values vary across models and risk levels, with Random Forest and SVM showing more consistent precision.</li>
+                    <li>The confusion matrices highlight differences in how each model classifies challenging cases, showing some misclassifications particularly for lower-performing models.</li>
+                </ul>
+                <p>These results demonstrate that while all models are capable, Random Forest and SVM provide the most robust and reliable performance for mental wellness risk assessment in this setting. The choice of model can affect risk group predictions, so thoughtful evaluation using multiple metrics and visualizations is essential.</p>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>"Better awareness today for a healthier mind tomorrow."</p>
+        <p> MindCare | Mental Wellness Risk Predictor</p>
+    </footer>
+
+    <script>
+        // Pass data from Flask to JavaScript
+        const chartData = {{ chart_data|safe }};
+        const precisionData = {{ precision_data|safe }};
+    </script>
+    <script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment - Mental Wellness Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">MindCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/questionnaire" class="active">Assessment</a></li>
+                <li><a href="/analysis">Model Analysis</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="questionnaire-header">
+            <h1>Mental Wellness Assessment</h1>
+            <p>Please answer all questions honestly for accurate results</p>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="progress-text"><span id="currentStep">1</span> of <span id="totalSteps">4</span> sections</p>
+        </div>
+
+        <form id="assessmentForm">
+            <!-- Step 1: Demographics -->
+            <div class="form-step active" data-step="1">
+                <h2 class="step-title">📋 Demographics</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Age</label>
+                        <input type="number" name="age" min="18" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select name="gender" required>
+                            <option value="">Select</option>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Occupation</label>
+                        <select name="occupation" required>
+                            <option value="">Select</option>
+                            <option value="0">Student</option>
+                            <option value="1">Professional</option>
+                            <option value="2">Business</option>
+                            <option value="3">Homemaker</option>
+                            <option value="4">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Lifestyle -->
+            <div class="form-step" data-step="2">
+                <h2 class="step-title">🏃 Lifestyle & Habits</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Average Sleep Hours per Night</label>
+                        <input type="number" name="sleepHours" min="0" max="24" step="0.5" required>
+                        <small>Recommended: 7-9 hours</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Physical Activity Level</label>
+                        <select name="physicalActivity" required>
+                            <option value="">Select</option>
+                            <option value="0">None (Sedentary)</option>
+                            <option value="1">Low (1-2 days/week)</option>
+                            <option value="2">Moderate (3-4 days/week)</option>
+                            <option value="3">High (5-6 days/week)</option>
+                            <option value="4">Very High (Daily)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Work Hours per Day</label>
+                        <input type="number" name="workHours" min="0" max="24" step="0.5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Social Media Usage (hours/day)</label>
+                        <input type="number" name="socialMediaUsage" min="0" max="24" step="0.5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Diet Quality</label>
+                        <select name="dietQuality" required>
+                            <option value="">Select</option>
+                            <option value="1">Poor (Mostly fast food/processed)</option>
+                            <option value="2">Below Average</option>
+                            <option value="3">Average (Mixed diet)</option>
+                            <option value="4">Good (Balanced diet)</option>
+                            <option value="5">Excellent (Very healthy)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Mental Health Indicators -->
+            <div class="form-step" data-step="3">
+                <h2 class="step-title">🧠 Mental Health Indicators</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Current Stress Level</label>
+                        <select name="stressLevel" required>
+                            <option value="">Select</option>
+                            <option value="1">Very Low</option>
+                            <option value="2">Low</option>
+                            <option value="3">Moderate</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>History of Mental Illness</label>
+                        <select name="mentalIllnessHistory" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Frequency of Mood Swings</label>
+                        <select name="moodSwings" required>
+                            <option value="">Select</option>
+                            <option value="0">Rarely/Never</option>
+                            <option value="1">Sometimes</option>
+                            <option value="2">Often</option>
+                            <option value="3">Very Often</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Difficulty Coping with Stress</label>
+                        <select name="copingStruggles" required>
+                            <option value="">Select</option>
+                            <option value="0">No Difficulty</option>
+                            <option value="1">Slight Difficulty</option>
+                            <option value="2">Moderate Difficulty</option>
+                            <option value="3">Severe Difficulty</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>History of Traumatic Experiences</label>
+                        <select name="traumaticExperience" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Family History of Mental Illness</label>
+                        <select name="familyHistory" required>
+                            <option value="">Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Substance Use -->
+            <div class="form-step" data-step="4">
+                <h2 class="step-title">🚭 Substance Use</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Alcohol Consumption</label>
+                        <select name="alcoholUse" required>
+                            <option value="">Select</option>
+                            <option value="0">Never</option>
+                            <option value="1">Occasionally (1-2 times/month)</option>
+                            <option value="2">Regularly (1-2 times/week)</option>
+                            <option value="3">Frequently (3+ times/week)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Smoking</label>
+                        <select name="smoking" required>
+                            <option value="">Select</option>
+                            <option value="0">Non-smoker</option>
+                            <option value="1">Occasional smoker</option>
+                            <option value="2">Regular smoker</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="form-navigation">
+                <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)">Previous</button>
+                <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">Next</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit Assessment</button>
+            </div>
+        </form>
+
+        <!-- Results Section -->
+        <div id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2>Assessment Results</h2>
+                <p>Based on your responses, here are the predictions from our AI models</p>
+            </div>
+
+            <div class="risk-card" id="primaryRisk">
+                <h3>Your Risk Level</h3>
+                <div class="risk-level" id="riskLevelDisplay"></div>
+                <div class="risk-description" id="riskDescription"></div>
+            </div>
+
+            <div class="models-predictions">
+                <h3>Model Predictions</h3>
+                <div class="predictions-grid" id="predictionsGrid"></div>
+            </div>
+
+            <div class="suggestions-card">
+                <h3>Personalized Recommendations</h3>
+                <ul id="suggestionsList"></ul>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="location.reload()">Take Another Assessment</button>
+                <a href="/analysis" class="btn btn-primary">View Detailed Analysis</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>"Better awareness today for a healthier mind tomorrow."</p>
+        <p> MindCare | Mental Wellness Risk Predictor</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/questionnaire.js') }}"></script>
+</body>
+</html>

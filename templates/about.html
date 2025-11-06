@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Mental Wellness Risk Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🧠</span>
+                <span class="logo-text">MindCare</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/questionnaire">Assessment</a></li>
+                <li><a href="/analysis">Model Analysis</a></li>
+                <li><a href="/about" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="about-header">
+            <h1>About This Project</h1>
+            <p>Understanding our mission and technology</p>
+        </div>
+
+        <div class="about-content">
+            <section class="about-section">
+                <h2>🎯 Our Mission</h2>
+                <p>MindCare aims to provide accessible, AI-powered mental wellness assessments to help individuals understand their mental health risks and take proactive steps toward better well-being. We believe that early detection and awareness are crucial for maintaining good mental health.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>🤖 Technology Stack</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">
+                        <h3>Frontend</h3>
+                        <ul>
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Chart.js for visualizations</li>
+                        </ul>
+                    </div>
+                    <div class="tech-item">
+                        <h3>Backend</h3>
+                        <ul>
+                            <li>Python Flask</li>
+                            <li>scikit-learn</li>
+                            <li>NumPy & Pandas</li>
+                        </ul>
+                    </div>
+                    <div class="tech-item">
+                        <h3>ML Models</h3>
+                        <ul>
+                            <li>Random Forest Classifier</li>
+                            <li>Gradient Boosting Classifier</li>
+                            <li>Support Vector Machine (SVM)</li>
+                            <li>Logistic Regression</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2>📊 How It Works</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Data Collection</h3>
+                        <p>Users provide information about demographics, lifestyle, mental health indicators, and substance use through a comprehensive questionnaire.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Feature Processing</h3>
+                        <p>The system processes 16 different features including sleep hours, physical activity, stress levels, and more.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>ML Prediction</h3>
+                        <p>Four different machine learning models analyze the data simultaneously to predict risk levels: Low, Medium, or High.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Results & Recommendations</h3>
+                        <p>Users receive personalized suggestions and can view detailed model comparisons and performance metrics.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="about-section">
+                <h2>📚 Dataset</h2>
+                <p>The model was trained on a synthetic dataset of 1,000 samples with balanced distribution across risk levels:</p>
+                <ul>
+                    <li>Low Risk: 35%</li>
+                    <li>Medium Risk: 40%</li>
+                    <li>High Risk: 25%</li>
+                </ul>
+                <p>The dataset includes 16 features carefully selected based on mental health research and clinical practices.</p>
+            </section>
+
+            <section class="about-section">
+                <h2>🔬 Model Performance</h2>
+                <p>All models were evaluated using standard machine learning metrics:</p>
+                <ul>
+                    <li><strong>Accuracy:</strong> Overall correctness of predictions</li>
+                    <li><strong>Precision:</strong> Accuracy of positive predictions for each class</li>
+                    <li><strong>Confusion Matrix:</strong> Detailed breakdown of predictions vs actual values</li>
+                </ul>
+                <p>Visit the <a href="/analysis">Model Analysis</a> page for detailed performance metrics and comparisons.</p>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>"Better awareness today for a healthier mind tomorrow."</p>
+        <p> MindCare | Mental Wellness Risk Predictor</p>
+    </footer>
+</body>
+</html>
