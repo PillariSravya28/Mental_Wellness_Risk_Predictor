@@ -1,0 +1,42 @@
+{
+  "models": [
+    "Random Forest",
+    "Logistic Regression",
+    "SVM",
+    "Gradient Boosting"
+  ],
+  "accuracy": [
+    92.0,
+    89.0,
+    91.0,
+    87.0
+  ],
+  "precision_macro": [
+    91.5,
+    88.2,
+    90.4,
+    85.7
+  ],
+  "confusion_matrices": {
+    "Random Forest": [
+      [62, 4, 4],
+      [5, 68, 7],
+      [4, 7, 39]
+    ],
+    "Logistic Regression": [
+      [59, 6, 5],
+      [8, 65, 7],
+      [7, 8, 35]
+    ],
+    "SVM": [
+      [61, 5, 4],
+      [6, 67, 7],
+      [6, 6, 37]
+    ],
+    "Gradient Boosting": [
+      [55, 8, 7],
+      [10, 60, 10],
+      [9, 9, 31]
+    ]
+  }
+}
